@@ -1,12 +1,23 @@
 var $body = $('body');
-var $headerOne = $('<h2>');
-var $headerTwo = $('<h2>');
-var $listBelow = $('<ul>');
+var $belowHeading = $('<h1>');
+var $belowList = $('<ul>');
+var $aboveHeading = $('<h1>');
+var $aboveList = $('<ul>');
 
-$headerOne.html('Below ground veggies.');
-$body.prepend($headerOne);
+$belowHeading.html('Below ground veggies.');
+$body.append($belowHeading);
+$body.append($belowList);
 
-$headerTwo.html('Above Ground Veggies')
-$body.append($headerTwo);
 
-$listBelow.html('.below');
+$aboveHeading.html('Above Ground Veggies')
+$body.append($aboveHeading);
+$body.append($aboveList);
+
+$('ul li').each(function () {
+  if ($(this).hasClass('below')) {
+  $belowList.append($(this));
+  } else {
+  $aboveList.append($(this));
+}
+});
+
